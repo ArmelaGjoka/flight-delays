@@ -51,6 +51,124 @@
           }
         }
       }
+    },
+    "flights-delay": {
+      "projectType": "application",
+      "root": "apps/flights-delay",
+      "sourceRoot": "apps/flights-delay/src",
+      "prefix": "flight-delays",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/flights-delay",
+            "index": "apps/flights-delay/src/index.html",
+            "main": "apps/flights-delay/src/main.ts",
+            "polyfills": "apps/flights-delay/src/polyfills.ts",
+            "tsConfig": "apps/flights-delay/tsconfig.app.json",
+            "assets": [
+              "apps/flights-delay/src/favicon.ico",
+              "apps/flights-delay/src/assets"
+            ],
+            "styles": ["apps/flights-delay/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/flights-delay/src/environments/environment.ts",
+                  "with": "apps/flights-delay/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "flights-delay:build:production"
+            },
+            "development": {
+              "browserTarget": "flights-delay:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "flights-delay:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/flights-delay/src/**/*.ts",
+              "apps/flights-delay/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/flights-delay"],
+          "options": {
+            "jestConfig": "apps/flights-delay/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "flights-delay-e2e": {
+      "root": "apps/flights-delay-e2e",
+      "sourceRoot": "apps/flights-delay-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/flights-delay-e2e/cypress.json",
+            "devServerTarget": "flights-delay:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "flights-delay:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/flights-delay-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {

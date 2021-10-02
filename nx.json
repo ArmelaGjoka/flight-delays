@@ -29,6 +29,13 @@
   "projects": {
     "api": {
       "tags": []
+    },
+    "flights-delay": {
+      "tags": []
+    },
+    "flights-delay-e2e": {
+      "tags": [],
+      "implicitDependencies": ["flights-delay"]
     }
   }
 }
