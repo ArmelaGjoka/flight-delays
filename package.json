@@ -7,6 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "start:flights": "ng serve flights-delay --open",
+    "start:api": "ng serve api",
     "build": "nx build",
     "test": "nx test"
   },
@@ -25,10 +26,12 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nrwl/angular": "^12.9.0",
     "@nrwl/nest": "^12.9.0",
+    "@types/vega": "^3.2.0",
     "mini-css-extract-plugin": "^2.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
+    "vega": "^5.21.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
