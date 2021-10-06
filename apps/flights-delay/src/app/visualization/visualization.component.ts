@@ -26,15 +26,15 @@ export class VisualizationComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('../assets/visualization-config.json').subscribe(spec => this.vegaInit(spec));
+    this.http.get('../assets/map-visualization.json').subscribe(spec => this.vegaInit(spec));
   }
 
   public vegaInit(spec: any): any {
     this.view = new vega.View(vega.parse(spec))
       .renderer('svg')
       .initialize('#chart')
-      .width(400)
-      .height(200)
+      .width(900)
+      .height(560)
       .hover()
       .run();
   }
