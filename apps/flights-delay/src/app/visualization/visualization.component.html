@@ -1,1 +1,16 @@
+
+  <div>
+    <mat-form-field style="padding: 10px;">
+        <mat-label>From</mat-label>
+        <mat-select [formControl]="fromAirport" multiple panelClass="select">
+          <mat-option *ngFor="let fromAirport of fromAirportList" [value]="fromAirport">{{fromAirport}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="padding: 10px;">
+        <mat-label>To</mat-label>
+        <mat-select [formControl]="toAirport" multiple panelClass="select">
+          <mat-option *ngFor="let toAirport of toAirportList" [value]="toAirport">{{toAirport}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
 <div id="chart"></div>

@@ -5,12 +5,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { VisualizationComponent } from './visualization/visualization.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, VisualizationComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],

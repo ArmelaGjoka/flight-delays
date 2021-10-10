@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-declare let vega: any;
-
 @Component({
   selector: 'flight-delays-root',
   templateUrl: './app.component.html',

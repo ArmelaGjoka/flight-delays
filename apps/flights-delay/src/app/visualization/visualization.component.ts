@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { View } from 'vega';
 
 declare let vega: any;
@@ -12,6 +13,14 @@ declare let vega: any;
 export class VisualizationComponent implements OnInit {
 
   view: View | undefined;
+
+  // Setup graph filters controls
+  fromAirport = new FormControl();
+  toAirport = new FormControl();
+
+  // Setup graph filters datasource
+  fromAirportList: string[] = ['A1', 'A2', 'A3'];
+  toAirportList: string[] = ['A1', 'A2', 'A3'];
 
   @Input() 
     set data(values: any[]){
