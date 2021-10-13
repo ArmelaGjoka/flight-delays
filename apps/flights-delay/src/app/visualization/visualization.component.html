@@ -14,3 +14,14 @@
       </mat-form-field>
   </div>
 <div id="chart"></div>
+
+<div id="grid">
+  <ag-grid-angular
+    style="width: 500px; height: 300px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+>
+</ag-grid-angular>
+</div>
+

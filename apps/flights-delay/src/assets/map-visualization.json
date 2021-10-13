@@ -10,14 +10,30 @@
         "name": "hover",
         "value": null,
         "on": [
-          {"events": "@cell:mouseover", "update": "datum"},
-          {"events": "@cell:mouseout", "update": "null"}
         ]
+      },
+      {
+        "name": "from",
+        "value": null
+      },
+      {
+        "name": "to",
+        "value": null
+      },
+      {
+        "name": "fromTitle",
+        "value": "",
+        "update": "from ? from.name : 'U.S. Airports, 2008' "
+      },
+      {
+        "name": "toTitle",
+        "value": "",
+        "update": "to ? ' - ' + to.name : '' "
       },
       {
         "name": "title",
         "value": "U.S. Airports, 2008",
-        "update": "hover ? hover.name + ' (' + hover.iata + ')' : 'U.S. Airports, 2008'"
+        "update": "fromTitle  + toTitle"
       },
       {
         "name": "cell_stroke",
@@ -94,7 +110,11 @@
         "transform": [
           {
             "type": "filter",
-            "expr": "hover && hover.iata == datum.origin"
+            "expr": "from && from.iata == datum.origin"
+          },
+          {
+            "type": "filter",
+            "expr": "to && to.iata == datum.destination"
           },
           {
             "type": "lookup",
@@ -184,8 +204,8 @@
         "encode": {
           "enter": {
             "path": {"field": "path"},
-            "stroke": {"value": "black"},
-            "strokeOpacity": {"value": 0.35}
+            "stroke": {"value": "red"},
+            "strokeOpacity": {"value": 0.6}
           }
         }
       },
@@ -197,11 +217,28 @@
             "x": {"signal": "width", "offset": -5},
             "y": {"value": 0},
             "fill": {"value": "black"},
-            "fontSize": {"value": 20},
+            "fontSize": {"value": 18},
             "align": {"value": "right"}
           },
           "update": {
             "text": {"signal": "title"}
+          }
+        }
+      },
+      {
+        "type": "text",
+        "interactive": false,
+        "from": { "data": "routes"  },
+        "encode": {
+          "enter": {
+            "x": {"signal": "width", "offset": -155},
+            "y": {"value": 30},
+            "fill": {"value": "black"},
+            "fontSize": {"value": 18},
+            "align": {"value": "left"}
+          },
+          "update": {
+            "text": {"signal": "datum.delay ? 'Delay: ' + datum.delay + ' mins' : ''" }
           }
         }
       }

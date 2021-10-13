@@ -29,6 +29,8 @@
     "@nrwl/angular": "^12.9.0",
     "@nrwl/nest": "^12.9.0",
     "@types/vega": "^3.2.0",
+    "ag-grid-angular": "^26.1.0",
+    "ag-grid-community": "^26.1.0",
     "mini-css-extract-plugin": "^2.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
