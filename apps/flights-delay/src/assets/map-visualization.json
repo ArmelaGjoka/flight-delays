@@ -70,6 +70,18 @@
         ]
       },
       {
+        "name": "fDelay",
+        "url": "assets/data/flights-airport.csv",
+        "format": {"type": "csv", "parse": "auto"},
+        "transform": [
+          {
+            "type": "aggregate",
+            "groupby": ["origin", "destination"],
+            "fields": ["delay"], "ops": ["average"], "as": ["flightsDelay"]
+          }
+        ]
+      },
+      {
         "name": "airports",
         "url": "assets/data/airports.csv",
         "format": {"type": "csv", "parse": "auto"},

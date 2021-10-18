@@ -16,14 +16,13 @@ export class VisualizationComponent implements OnInit {
   view: View | undefined;
 
   columnDefs: ColDef[] = [
-    { field: 'from' },
-    { field: 'to' },
-    { field: 'delay'}
+    { field: 'from', colId: 'from', width: 200 },
+    { field: 'to', width: 200 },
+    { field: 'delay', width: 100},
+    { field: 'covid', headerName: 'Covid #', width: 100}
 ];
 
-rowData = [
-    { from: 'Toyota', to: 'Celica', delay: 35000 },
-];
+rowData: {from: string, to: string, covid: string, delay: string}[] = [];
 
   // Setup graph filters controls
   fromAirport = new FormControl();
@@ -32,6 +31,8 @@ rowData = [
   // Setup graph filters datasource
   fromAirportList: string[] = [];
   toAirportList: string[] = [];
+
+  flights: {from: string, to: string, covid: string, delay: string }[] = [];
 
   set airports(values: any[]){
       if (!this.view) {
@@ -54,6 +55,13 @@ rowData = [
        
        const newState = toAirport ? { from: fromAirport, to: toAirport } : {from: fromAirport };
        this.setState(newState);
+
+       if (toAirport) {
+        const rows: { from: string; to: string; delay: string; covid: string; }[] = [];
+        const flightData = this.flights.filter(f => f.from =  this.fromAirport.value && f.to == newValue);
+        flightData.forEach(d => rows.push({from: fromAirport.name, to: toAirport.name, delay: d.delay, covid: d.covid }));
+        this.rowData = rows;
+       }
     });
 
     this.toAirport.valueChanges.subscribe(newValue => {
@@ -65,7 +73,10 @@ rowData = [
       const newState = {from: fromAirport, to: toAirport };
       this.setState(newState);
 
-      console.log('STATE: ', this.view?.getState().signals);
+      const rows: { from: string; to: string; delay: string; covid: string; }[] = [];
+      const flightData = this.flights.filter(f => f.from =  this.fromAirport.value && f.to == newValue);
+      flightData.forEach(d => rows.push({from: fromAirport.name, to: toAirport.name, delay: d.delay, covid: d.covid }));
+      this.rowData = rows;
     });
   }
 
@@ -79,6 +90,7 @@ rowData = [
             const values = flight.split(",");
             fromSet.add(values[0]);
             toSet.add(values[1]);
+            this.flights.push({ from: values[0], to: values[1], covid: values[2], delay: values[3]})
         });
       this.fromAirportList = Array.from(fromSet.values());
       this.toAirportList = Array.from(toSet.values());

@@ -1,6 +1,6 @@
 
   <div>
-    <mat-form-field style="padding: 10px;">
+    <mat-form-field style="padding: 30px;">
         <mat-label>From</mat-label>
         <mat-select [formControl]="fromAirport" panelClass="select">
           <mat-option *ngFor="let fromAirport of fromAirportList" [value]="fromAirport">{{fromAirport}}</mat-option>
@@ -13,15 +13,26 @@
         </mat-select>
       </mat-form-field>
   </div>
-<div id="chart"></div>
 
-<div id="grid">
-  <ag-grid-angular
-    style="width: 500px; height: 300px;"
-    class="ag-theme-alpine"
-    [rowData]="rowData"
-    [columnDefs]="columnDefs"
->
-</ag-grid-angular>
+<div class="float-container">
+    <div class="float-child-first">
+      <div id="chart"></div>
+    </div>
+
+    <div class="float-child-second" *ngIf="rowData.length > 0">
+      <div id="grid">
+        <ag-grid-angular
+          style="width: 650px; height: 300px;"
+          class="ag-theme-alpine"
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+      >
+      </ag-grid-angular>
+      </div>
+    </div>
+
 </div>
+
+
+
 
