@@ -8,8 +8,13 @@ import { VisualizationComponent } from './visualization/visualization.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSelectModule} from '@angular/material/select';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
+
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [AppComponent, VisualizationComponent],
@@ -19,7 +24,11 @@ import { AgGridModule } from 'ag-grid-angular';
     MatSelectModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
     AgGridModule.withComponents([]),
+    MatTabsModule,
+    MatButtonModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],

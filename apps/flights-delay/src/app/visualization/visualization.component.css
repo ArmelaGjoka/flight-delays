@@ -4,13 +4,13 @@
 }
 
 .float-child-first {
-    width: 60%;
+    width: 50%;
     float: left;
-    padding: 10px;
+    padding: 10px 50px 10px 10px;
 }  
 
 .float-child-second {
-    width: 30%;
+    width: 40%;
     float: left;
-    padding: 10px;
+    min-height: 500px;
 }  

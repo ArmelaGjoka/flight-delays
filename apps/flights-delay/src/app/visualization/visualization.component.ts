@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ColDef } from 'ag-grid-community';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ColDef, GridOptions } from 'ag-grid-community';
 import { View } from 'vega';
 
 declare let vega: any;
@@ -16,13 +16,18 @@ export class VisualizationComponent implements OnInit {
   view: View | undefined;
 
   columnDefs: ColDef[] = [
-    { field: 'from', colId: 'from', width: 200 },
-    { field: 'to', width: 200 },
-    { field: 'delay', width: 100},
-    { field: 'covid', headerName: 'Covid #', width: 100}
-];
+    { field: 'delay', headerName: 'Delay',  width: 200, enableRowGroup: true, type: 'number', filter: 'number', aggFunc: 'avg', resizable: true, sortable: true},
+    { field: 'covid', headerName: 'Covid #', width: 100, enableRowGroup: true, type: 'number', filter: 'number', aggFunc: 'avg', resizable: true, sortable: true},
+    { field: 'carrier', headerName: 'Carrier', width: 200, enableRowGroup: true, type: 'text', filter: 'agSetColumnFilter', resizable: true, sortable: true}
+];  
 
-rowData: {from: string, to: string, covid: string, delay: string}[] = [];
+  gridOptions: GridOptions = {
+    rowGroupPanelShow: 'always',
+    sideBar: 'columns',
+  };
+
+
+rowData: {from: string, to: string, covid: number, delay: number, carrier: string}[] = [];
 
   // Setup graph filters controls
   fromAirport = new FormControl();
@@ -32,7 +37,16 @@ rowData: {from: string, to: string, covid: string, delay: string}[] = [];
   fromAirportList: string[] = [];
   toAirportList: string[] = [];
 
-  flights: {from: string, to: string, covid: string, delay: string }[] = [];
+  airlines = ['Alaska Airlines Inc.', 'Allegiant Air', 'American Airlines Inc.', 'Delta Air Lines Inc.', 'Frontier Airlines Inc.', 'Hawaiian Airlines Inc.', 
+      'JetBlue Airways', 'Southwest Airlines Co.', 'Spirit Air Lines', 'United Air Lines Inc.'];
+
+  flights: {from: string, to: string, covid: string, delay: number, carrier: string }[] = [];
+
+  form = new FormGroup({
+    hour: new FormControl(),
+    day: new FormControl(),
+    month: new FormControl()
+  })
 
   set airports(values: any[]){
       if (!this.view) {
@@ -49,7 +63,7 @@ rowData: {from: string, to: string, covid: string, delay: string}[] = [];
 
     this.fromAirport.valueChanges.subscribe(newValue => {
        const airports = this.view?.data('airports');
-
+       console.log('AIRPORTS: ', airports);
        const fromAirport = airports?.filter(a => a.iata === newValue)[0];
        const toAirport = this.toAirport.value ? airports?.filter(a => a.iata === this.toAirport.value)[0] : null;
        
@@ -57,9 +71,9 @@ rowData: {from: string, to: string, covid: string, delay: string}[] = [];
        this.setState(newState);
 
        if (toAirport) {
-        const rows: { from: string; to: string; delay: string; covid: string; }[] = [];
+        const rows: { from: string; to: string; delay: number; covid: number; carrier: string}[] = [];
         const flightData = this.flights.filter(f => f.from =  this.fromAirport.value && f.to == newValue);
-        flightData.forEach(d => rows.push({from: fromAirport.name, to: toAirport.name, delay: d.delay, covid: d.covid }));
+        flightData.forEach(d => rows.push({from: fromAirport.name, to: toAirport.name, delay: +d.delay, covid: +d.covid, carrier: d.carrier }));
         this.rowData = rows;
        }
     });
@@ -73,9 +87,9 @@ rowData: {from: string, to: string, covid: string, delay: string}[] = [];
       const newState = {from: fromAirport, to: toAirport };
       this.setState(newState);
 
-      const rows: { from: string; to: string; delay: string; covid: string; }[] = [];
+      const rows: { from: string; to: string; delay: number; covid: number; carrier: string }[] = [];
       const flightData = this.flights.filter(f => f.from =  this.fromAirport.value && f.to == newValue);
-      flightData.forEach(d => rows.push({from: fromAirport.name, to: toAirport.name, delay: d.delay, covid: d.covid }));
+      flightData.forEach(d => rows.push({from: fromAirport.name, to: toAirport.name, delay: +d.delay, covid: +d.covid, carrier: d.carrier }));
       this.rowData = rows;
     });
   }
@@ -90,7 +104,7 @@ rowData: {from: string, to: string, covid: string, delay: string}[] = [];
             const values = flight.split(",");
             fromSet.add(values[0]);
             toSet.add(values[1]);
-            this.flights.push({ from: values[0], to: values[1], covid: values[2], delay: values[3]})
+            this.flights.push({ from: values[0], to: values[1], covid: values[2], delay: +values[3], carrier: values[4]})
         });
       this.fromAirportList = Array.from(fromSet.values());
       this.toAirportList = Array.from(toSet.values());
@@ -110,6 +124,10 @@ rowData: {from: string, to: string, covid: string, delay: string}[] = [];
       .height(560)
       .hover()
       .run();
+  }
+
+  predictDelay() {
+    // TODO: Connect with model
   }
 
 }
