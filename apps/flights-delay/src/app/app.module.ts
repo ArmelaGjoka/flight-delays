@@ -14,10 +14,14 @@ import { AgGridModule } from 'ag-grid-angular';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { ViewContainerComponent } from './view-container/view-container.component';
+import { ChartComponent } from './view-container/components/chart/chart.component';
+import { FormComponent } from './view-container/components/form/form.component';
+import { GridComponent } from './view-container/components/grid/grid.component';
 
 
 @NgModule({
-  declarations: [AppComponent, VisualizationComponent],
+  declarations: [AppComponent, VisualizationComponent, ViewContainerComponent, ChartComponent, FormComponent, GridComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
