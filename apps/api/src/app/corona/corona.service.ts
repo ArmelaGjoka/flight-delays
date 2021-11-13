@@ -1,14 +1,18 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { Corona } from './corona.entity';
+
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from "typeorm";
+import { Corona } from './corona.entity'; 
 
 @Injectable()
 export class CoronaService {
   constructor(
-    @Inject('CORONA_REPOSITORY')
-    private coronaRepository: typeof Corona
-  ) {}
+    @InjectRepository(Corona)
+    private readonly coronaRepository: Repository<Corona>
+  ) {
+  }
 
   async findAll(): Promise<Corona[]> {
-    return this.coronaRepository.findAll<Corona>();
+    return await this.coronaRepository.find();
   }
 }

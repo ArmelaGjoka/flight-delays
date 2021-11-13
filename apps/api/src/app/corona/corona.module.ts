@@ -1,15 +1,12 @@
 import { Module } from "@nestjs/common";
-import { DatabaseModule } from "../../database/database.module";
+import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoronaController } from "./corona.controller";
-import { coronaProvider } from "./corona.providers";
+import { Corona } from "./corona.entity";
 import { CoronaService } from "./corona.service";
 
 @Module({
-    imports: [DatabaseModule],
-    controllers: [CoronaController],
-    providers: [
-        CoronaService,
-        ...coronaProvider
-    ]
-})
-export class CoronaModule {}
+    imports: [TypeOrmModule.forFeature([Corona])],
+    providers: [CoronaService],
+    controllers: [CoronaController]
+  })
+  export class CoronaModule {}

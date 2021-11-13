@@ -8,7 +8,7 @@ export class CoronaController {
     constructor(private coronaService: CoronaService) {}
 
     @Get()
-    index(): Promise<Corona[]> {
+    getCoronaValues(): Promise<Corona[]> {
       return this.coronaService.findAll();
     }    
 }

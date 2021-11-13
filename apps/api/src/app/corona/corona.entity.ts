@@ -1,23 +1,26 @@
-import { Table, Column, Model } from 'sequelize-typescript';
+import { Column, Entity, PrimaryColumn } from "typeorm";
 
-@Table
-export class Corona extends Model {
-    @Column({primaryKey: true})
-    id: string;
+@Entity({
+    name: 'CORONA_STATE'
+})
+export class Corona {
 
-/*     @Column
-    county: string;
+    @PrimaryColumn()
+    date: string;
 
-    @Column
+    @Column()
     state: string;
 
-    @Column
-    fips: number;
+    @Column()
+    fips_state: string;
 
-    @Column
+    @Column()
     cases: number;
 
-    @Column
-    deaths: number; */
+    @Column()
+    deaths: number;
+
+    @Column()
+    population: number;
 
 }
