@@ -1,0 +1,2 @@
+best_parameters,best_validation_score,mae,mse,mape,r2
+"{'predict__en__alpha': 0.01, 'predict__en__l1_ratio': 1}",-8.571498133604294,8.542204258104887,138.50777466902383,654773248327266.4,0.7246158858804108
