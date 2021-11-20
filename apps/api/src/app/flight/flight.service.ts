@@ -15,7 +15,6 @@ export class FlightService {
   }
 
   async getFlightsByOriginDest(origin: string, dest: string): Promise<Flight[]> {
-    console.log('FILTERED FLIGHT: ', origin, dest);
     const result = await this.flightRepository.find({ origin, dest });
     return result;
   }

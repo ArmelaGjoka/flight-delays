@@ -224,30 +224,15 @@
       {
         "type": "text",
         "interactive": false,
-        "encode": {
-          "enter": {
-            "x": {"signal": "width", "offset": -5},
-            "y": {"value": 0},
-            "fill": {"value": "black"},
-            "fontSize": {"value": 18},
-            "align": {"value": "right"}
-          },
-          "update": {
-            "text": {"signal": "title"}
-          }
-        }
-      },
-      {
-        "type": "text",
-        "interactive": false,
         "from": { "data": "routes"  },
         "encode": {
           "enter": {
-            "x": {"signal": "width", "offset": -155},
-            "y": {"value": 30},
+            "x": {"signal": "width", "offset": 0},
+            "y": {"value": 0},
             "fill": {"value": "black"},
-            "fontSize": {"value": 18},
-            "align": {"value": "left"}
+            "fontSize": {"value": 16},
+            "fontWeight": {"value": "600"},
+            "align": {"value": "right"}
           },
           "update": {
             "text": {"signal": "datum.delay ? 'Delay: ' + datum.delay + ' mins' : ''" }

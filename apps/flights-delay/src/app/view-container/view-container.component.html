@@ -1,10 +1,10 @@
-<mat-form-field style="padding: 10px 30px;">
+<mat-form-field style="padding: 10px 30px; min-width: 20%;">
     <mat-label>From</mat-label>
     <mat-select [formControl]="fromAirport" panelClass="select">
        <mat-option *ngFor="let fromAirport of fromAirportList | keyvalue" [value]="fromAirport.key">{{ fromAirport.value}}</mat-option>
     </mat-select>
  </mat-form-field>
- <mat-form-field style="padding: 10px;">
+ <mat-form-field style="padding: 10px; min-width: 20%;">
     <mat-label>To</mat-label>
     <mat-select [formControl]="toAirport" panelClass="select">
        <mat-option *ngFor="let toAirport of toAirportList | keyvalue" [value]="toAirport.key">{{ toAirport.value}}</mat-option>
@@ -12,8 +12,9 @@
  </mat-form-field>
  <div class="float-container">
     <div class="float-child-first">
-       <flight-delays-chart></flight-delays-chart>
-       <div id="chart"></div>
+       <flight-delays-chart
+         [chartState] = "chartState"
+       ></flight-delays-chart>
     </div>
     <div class="float-child-second"  id="grid"> <!-- *ngIf="rowData.length > 0" -->
        <mat-tab-group animationDuration="0ms">
