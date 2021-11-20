@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CARRIER_LIST } from '../../../constants/carrier';
+import { Flight } from '../../models/flight.model';
 
 @Component({
   selector: 'flight-delays-form',
@@ -9,12 +10,20 @@ import { CARRIER_LIST } from '../../../constants/carrier';
 })
 export class FormComponent implements OnInit {
 
+  @Input() set flights(values: Flight[]) {
+      if (values?.length > 0) {
+          const avgDelay = values.reduce((sum, current) => sum + current.dep_delay, 0) / values.length;
+          this.form.get('departureDelay')?.setValue(avgDelay);
+          this.form.get('distance')?.setValue( values[0].distance);
+      }
+  }
+
   carriers = CARRIER_LIST;
 
   form = new FormGroup({
     // Flight
-    departureDelay: new FormControl(), // Avg default
-    distance: new FormControl(), // Current Distance
+    departureDelay: new FormControl(), 
+    distance: new FormControl(), 
     // Time
     hour: new FormControl(),
     day: new FormControl(),
@@ -27,10 +36,6 @@ export class FormComponent implements OnInit {
     // Airline
     airline: new FormControl(),
   })
-
-  constructor() { 
-    console.log('TODO FORM');
-  }
 
   ngOnInit(): void {
     console.log('TODO FORM');
