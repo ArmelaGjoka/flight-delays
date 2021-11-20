@@ -1,6 +1,17 @@
-<!-- <form [formGroup]="form">
+<form [formGroup]="form">
     <div>
       <div>
+        <p style="font-weight: 700">Flight</p>
+        <mat-form-field style="padding: 10px;">
+          <mat-label>Departure Delay</mat-label>
+          <input matInput  type="number" formControlName="departureDelay"/>
+          <span matSuffix>min</span>
+        </mat-form-field>
+        <mat-form-field style="padding: 10px;">
+          <mat-label>Distance</mat-label>
+          <input matInput  type="number" formControlName="distance"/>
+          <span matSuffix>km</span>
+        </mat-form-field>
         <p style="font-weight: 700">Time Options</p>
        <mat-form-field style="padding: 10px;">
          <mat-label>Hour of the day</mat-label>
@@ -16,27 +27,33 @@
       </mat-form-field>
       </div>
       <div>
-        <p style="font-weight: 700">Covid Case %:</p>
-        <mat-form-field style="padding: 10px;">
+        <p style="font-weight: 700">Covid Case:</p>
+        <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Origin</mat-label>
-          <input matInput  type="number" min="1" max="100" formControlName="hour"/>
+          <input matInput  type="number" formControlName="covidOrigin"/>
         </mat-form-field>
-        <mat-form-field style="padding: 10px;">
+        <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Destination</mat-label>
-          <input matInput type="number" min="1" max="100" formControlName="day"/>
+          <input matInput type="number" formControlName="covidDest"/>
+        </mat-form-field>
+        <mat-form-field style="padding: 10px; width: 20%;">
+          <mat-label>Incr. Origin</mat-label>
+          <input matInput type="text" formControlName="increaseOrigin"/>
+        </mat-form-field>
+        <mat-form-field style="padding: 10px; width: 20%;">
+          <mat-label>Incr. Destination</mat-label>
+          <input matInput type="text" formControlName="increaceDest"/>
         </mat-form-field>
       </div>
       <div>
         <p style="font-weight: 700">Airline</p>
-        <mat-form-field style="padding: 10px;">
+        <mat-form-field style="padding: 10px; min-width: 50%;">
           <mat-label>Name</mat-label>
-        <mat-select formControlName="day" panelClass="select">
-          <mat-option *ngFor="let airline of airlines" [value]="airline">{{airline}}</mat-option>
+        <mat-select formControlName="airline" panelClass="select">
+          <mat-option *ngFor="let carrier of carriers" [value]="carrier">{{carrier}}</mat-option>
         </mat-select>
         </mat-form-field>
       </div>
    </div>
    <button mat-raised-button color="primary" type="submit" (click)="predictDelay()">Predict</button>
-  </form> -->
-
-  <p>FORM HERE</p>
+  </form>
