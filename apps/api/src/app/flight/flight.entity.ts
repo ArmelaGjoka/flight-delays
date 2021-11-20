@@ -3,7 +3,7 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity({
-    name: 'flights'
+    name: 'filtered_flights_final'
 })
 export class Flight {
     // TEMP 
@@ -24,10 +24,16 @@ export class Flight {
     mkt_carrier_name: string;
 
     @Column()
+    origin: string;
+
+    @Column()
     origin_city: string;
 
     @Column()
     origin_airport_name: string;
+
+    @Column()
+    dest: string;
 
     @Column()
     dest_city: string;
@@ -40,6 +46,15 @@ export class Flight {
 
     @Column()
     cancellation_description: string;
+
+    @Column()
+    fl_date: string;
+
+    @Column()
+    time_of_day: string;
+
+    @Column()
+    distance: number;
 
 
 }

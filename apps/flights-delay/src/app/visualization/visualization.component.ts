@@ -94,7 +94,7 @@ rowData: {from: string, to: string, covid: number, delay: number, carrier: strin
     });
   }
 
-  private parseData() {
+  private parseData(): void {
     this.http.get('../assets/map-visualization.json').subscribe(spec => this.vegaInit(spec));
     this.http.get('../assets/data/flights-airport.csv',  {responseType: "text"}).subscribe(data => {
       const list = data.split("\n");

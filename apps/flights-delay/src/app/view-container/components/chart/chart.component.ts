@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { View } from 'vega';
+
+
+declare let vega: any;
 
 @Component({
   selector: 'flight-delays-chart',
@@ -6,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
+
+  view: View | undefined;
 
   constructor() { 
     console.log('TODO CHART');

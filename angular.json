@@ -114,7 +114,8 @@
               "browserTarget": "flights-delay:build:production"
             },
             "development": {
-              "browserTarget": "flights-delay:build:development"
+              "browserTarget": "flights-delay:build:development",
+              "proxyConfig": "apps/flights-delay/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

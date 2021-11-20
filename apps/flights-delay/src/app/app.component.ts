@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'Flights Delay';
 
   constructor( private http: HttpClient) {
-    this.http.get('/api').subscribe(r => console.log('Population: ', r))
+    this.http.get('/api/corona').subscribe(r => console.log('Population: ', r))
   }
 }
