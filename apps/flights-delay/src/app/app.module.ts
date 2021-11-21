@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { VisualizationComponent } from './visualization/visualization.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSelectModule} from '@angular/material/select';
@@ -22,7 +21,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
-  declarations: [AppComponent, VisualizationComponent, ViewContainerComponent, ChartComponent, FormComponent, GridComponent],
+  declarations: [AppComponent, ViewContainerComponent, ChartComponent, FormComponent, GridComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
