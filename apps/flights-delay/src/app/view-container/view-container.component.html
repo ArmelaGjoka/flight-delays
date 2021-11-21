@@ -1,17 +1,19 @@
-<mat-form-field style="padding: 10px 30px; min-width: 20%;">
-    <mat-label>From</mat-label>
-    <mat-select [formControl]="fromAirport" panelClass="select">
-       <mat-option *ngFor="let fromAirport of fromAirportList | keyvalue" [value]="fromAirport.key">{{ fromAirport.value}}</mat-option>
-    </mat-select>
- </mat-form-field>
- <mat-form-field style="padding: 10px; min-width: 20%;">
-    <mat-label>To</mat-label>
-    <mat-select [formControl]="toAirport" panelClass="select">
-       <mat-option *ngFor="let toAirport of toAirportList | keyvalue" [value]="toAirport.key">{{ toAirport.value}}</mat-option>
-    </mat-select>
- </mat-form-field>
  <div class="float-container">
     <div class="float-child-first">
+      <mat-form-field style="min-width: 40%;">
+         <mat-label>From</mat-label>
+         <mat-select [formControl]="fromAirport" panelClass="select">
+            <mat-option *ngFor="let fromAirport of fromAirportList | keyvalue" [value]="fromAirport.key">{{ fromAirport.value}}</mat-option>
+         </mat-select>
+      </mat-form-field>
+      <mat-form-field style="padding: 10px; min-width: 40%;">
+         <mat-label>To</mat-label>
+         <mat-select [formControl]="toAirport" panelClass="select">
+            <mat-option *ngFor="let toAirport of toAirportList | keyvalue" [value]="toAirport.key">{{ toAirport.value}}</mat-option>
+         </mat-select>
+      </mat-form-field>
+       <p style="padding-left: 10px; font-weight: 600;" *ngIf="showNoFlightsMessage">We don't have any data for this flight, please change origin or destination</p>
+       <p style="padding-left: 10px; font-weight: 600;" *ngIf="!showNoFlightsMessage && avgDelay">Delay {{ avgDelay | number: '1.0-2' }} mins</p>
        <flight-delays-chart [chartState] = "chartState"></flight-delays-chart>
     </div>
     <div class="float-child-second"  id="grid">

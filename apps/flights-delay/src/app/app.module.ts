@@ -18,6 +18,7 @@ import { ChartComponent } from './view-container/components/chart/chart.componen
 import { FormComponent } from './view-container/components/form/form.component';
 import { GridComponent } from './view-container/components/grid/grid.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     MatSelectModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

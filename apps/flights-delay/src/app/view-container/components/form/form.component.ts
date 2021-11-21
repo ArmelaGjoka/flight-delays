@@ -16,6 +16,9 @@ export class FormComponent implements OnInit {
           const avgDelay = values.reduce((sum, current) => sum + current.dep_delay, 0) / values.length;
           this.form.get('departureDelay')?.setValue(avgDelay);
           this.form.get('distance')?.setValue( values[0].distance);
+      } else {
+        this.form.get('departureDelay')?.setValue(null);
+        this.form.get('distance')?.setValue(null);
       }
   }
 

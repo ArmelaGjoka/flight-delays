@@ -28,6 +28,9 @@ export class ViewContainerComponent implements OnInit {
   
   chartState: unknown;
 
+  showNoFlightsMessage = false;
+  avgDelay: number | null = null;
+
   constructor(
     private flightService: FlightService,
     private utilityService: UtilityService,
@@ -70,7 +73,14 @@ export class ViewContainerComponent implements OnInit {
   private getFlights(from: Airport, to: Airport): void {
     this.flightService.getFlightsByOriginDest(from.iata, to.iata).pipe(
     ).subscribe((res: Flight[]) => {
+        if (res?.length == 0) {
+            this.showNoFlightsMessage = true;
+            return;
+        }
+        let sumDelay = 0;
+        this.showNoFlightsMessage = false;
         this.flights = res.map(flight => {    
+          sumDelay += flight.arr_delay;
             const flightCovid: FlightCovid = {...flight};  
             if (this.covidData[flight.origin_state_fips] && this.covidData[flight.origin_state_fips][flight.fl_date])  {
                 const covidOrigin: Covid =  this.covidData[flight.origin_state_fips][flight.fl_date];
@@ -86,9 +96,10 @@ export class ViewContainerComponent implements OnInit {
                 flightCovid.destCovidDeaths = covidDest.deaths;
                 flightCovid.destCovidPerc = covidDest.cases_perc;
             }
-
             return flightCovid;
         })
+
+        this.avgDelay = sumDelay / res.length;
       })
   }
 }

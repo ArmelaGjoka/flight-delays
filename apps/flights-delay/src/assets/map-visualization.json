@@ -220,24 +220,6 @@
             "strokeOpacity": {"value": 0.6}
           }
         }
-      },
-      {
-        "type": "text",
-        "interactive": false,
-        "from": { "data": "routes"  },
-        "encode": {
-          "enter": {
-            "x": {"signal": "width - 750", "offset": 0},
-            "y": {"value": -10},
-            "fill": {"value": "black"},
-            "fontSize": {"value": 16},
-            "fontWeight": {"value": "600"},
-            "align": {"value": "right"}
-          },
-          "update": {
-            "text": {"signal": "datum.delay ? 'Delay: ' + datum.delay + ' mins' : ''" }
-          }
-        }
       }
     ]
   }
