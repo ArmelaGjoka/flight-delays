@@ -18,6 +18,7 @@ import { ViewContainerComponent } from './view-container/view-container.componen
 import { ChartComponent } from './view-container/components/chart/chart.component';
 import { FormComponent } from './view-container/components/form/form.component';
 import { GridComponent } from './view-container/components/grid/grid.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { GridComponent } from './view-container/components/grid/grid.component';
     AgGridModule.withComponents([]),
     MatTabsModule,
     MatButtonModule,
+    MatAutocompleteModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],

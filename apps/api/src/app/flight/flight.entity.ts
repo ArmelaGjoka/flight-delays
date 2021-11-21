@@ -5,9 +5,11 @@ import { Column, Entity, PrimaryColumn } from "typeorm";
 @Entity({
     name: 'filtered_flights_final'
 })
-export class Flight {
-    // TEMP 
+export class Flight { 
     @PrimaryColumn()
+    _rowid_: string;
+
+    @Column()
     dep_time: number;
     
     @Column()
@@ -56,5 +58,9 @@ export class Flight {
     @Column()
     distance: number;
 
+    @Column()
+    origin_state_fips: number;
 
+    @Column()
+    dest_state_fips: number;
 }

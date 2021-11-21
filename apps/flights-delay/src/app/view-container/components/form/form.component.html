@@ -49,9 +49,17 @@
         <p style="font-weight: 700">Airline</p>
         <mat-form-field style="padding: 10px; min-width: 50%;">
           <mat-label>Name</mat-label>
-        <mat-select formControlName="airline" panelClass="select">
-          <mat-option *ngFor="let carrier of carriers" [value]="carrier">{{carrier}}</mat-option>
-        </mat-select>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Airline"
+                 matInput
+                 formControlName="airline"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let carrier of filteredCarriers | async" [value]="carrier">
+              {{carrier}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
       </div>
    </div>

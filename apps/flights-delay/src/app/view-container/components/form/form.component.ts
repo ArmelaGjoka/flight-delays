@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { map, Observable, of, startWith } from 'rxjs';
 import { CARRIER_LIST } from '../../../constants/carrier';
 import { Flight } from '../../models/flight.model';
 
@@ -20,6 +21,8 @@ export class FormComponent implements OnInit {
 
   carriers = CARRIER_LIST;
 
+  filteredCarriers: Observable<string[]> | undefined = of(this.carriers);
+
   form = new FormGroup({
     // Flight
     departureDelay: new FormControl(), 
@@ -38,7 +41,16 @@ export class FormComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    console.log('TODO FORM');
+    this.filteredCarriers = this.form.get('airline')?.valueChanges.pipe(
+       startWith(''),
+       map(name => (name ? this.filter(name) : this.carriers.slice())),
+    )
+  }
+
+  private filter(name: string): string[] {
+    const filterValue = name.toLowerCase();
+
+    return this.carriers.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   predictDelay() {

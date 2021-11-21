@@ -15,4 +15,6 @@ export interface Flight {
     origin_city: string;
     time_of_day: string;
     year: number;
+    origin_state_fips: number;
+    dest_state_fips: number;
 }

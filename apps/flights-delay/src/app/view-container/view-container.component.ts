@@ -1,9 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FROM_AIRPORT_LIST, TO_AIRPORT_LIST } from '../constants/aiports';
 import { Airport } from './models/airport.model';
+import { Covid } from './models/covid.model';
 import { Flight } from './models/flight.model';
+import { FlightCovid } from './models/flightCovid.model';
+import { CovidService } from './services/covid.service';
 import { FlightService } from './services/flight.service';
 import { UtilityService } from './services/utility.service';
 
@@ -19,19 +21,31 @@ export class ViewContainerComponent implements OnInit {
   fromAirport = new FormControl();
   toAirport = new FormControl();
 
-  flights: Flight[] = [];
+  flights: FlightCovid[] = [];
   airports: Airport[] = [];
+
+  covidData: { [fips: string]: { [date: string]: Covid } } = {};
   
   chartState: unknown;
 
   constructor(
-    private http: HttpClient,
     private flightService: FlightService,
     private utilityService: UtilityService,
+    private covidService: CovidService,
   ) {}
 
   ngOnInit(): void {
+
     this.utilityService.getAirports().subscribe(res => this.airports = res);
+    this.covidService.getCovidData().subscribe((data: Covid[]) => {
+        data.forEach(row => {
+            if (!this.covidData[row.fips_state]) {
+                this.covidData[row.fips_state] = { [row.date] : row };
+            } else {
+                this.covidData[row.fips_state][row.date] = row;
+            }
+        })
+    });
     
     this.fromAirport.valueChanges.subscribe(newValue => {
       const fromAirport = this.airports?.filter(a => a.iata === newValue)[0];
@@ -54,7 +68,27 @@ export class ViewContainerComponent implements OnInit {
   }
 
   private getFlights(from: Airport, to: Airport): void {
-    this.flightService.getFlightsByOriginDest(from.iata, to.iata).subscribe((res) => this.flights = res)
-  }
+    this.flightService.getFlightsByOriginDest(from.iata, to.iata).pipe(
+    ).subscribe((res: Flight[]) => {
+        this.flights = res.map(flight => {    
+            const flightCovid: FlightCovid = {...flight};  
+            if (this.covidData[flight.origin_state_fips] && this.covidData[flight.origin_state_fips][flight.fl_date])  {
+                const covidOrigin: Covid =  this.covidData[flight.origin_state_fips][flight.fl_date];
 
+                flightCovid.originCovidCases = covidOrigin.cases;
+                flightCovid.originCovidDeaths = covidOrigin.deaths;
+                flightCovid.originCasesPerc = covidOrigin.cases_perc;
+            }
+
+            if (this.covidData[flight.dest_state_fips] && this.covidData[flight.dest_state_fips][flight.fl_date]) {
+                const covidDest: Covid =  this.covidData[flight.dest_state_fips][flight.fl_date];
+                flightCovid.destCovidCases = covidDest.cases;
+                flightCovid.destCovidDeaths = covidDest.deaths;
+                flightCovid.destCovidPerc = covidDest.cases_perc;
+            }
+
+            return flightCovid;
+        })
+      })
+  }
 }
