@@ -1,11 +1,14 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity({
-    name: 'CORONA_STATE'
+    name: 'corona_state'
 })
 export class Corona {
 
     @PrimaryColumn()
+    _rowid_: string;
+
+    @Column()
     date: string;
 
     @Column()
@@ -22,5 +25,8 @@ export class Corona {
 
     @Column()
     population: number;
+
+    @Column()
+    cases_perc: number;
 
 }

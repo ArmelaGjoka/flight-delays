@@ -14,8 +14,8 @@ export class FlightService {
     return await this.flightRepository.find();
   }
 
-  async findByName(year: number): Promise<Flight> {
-    const result = await this.flightRepository.find({ year });
-    return result[0];
+  async getFlightsByOriginDest(origin: string, dest: string): Promise<Flight[]> {
+    const result = await this.flightRepository.find({ origin, dest });
+    return result;
   }
 }

@@ -220,39 +220,6 @@
             "strokeOpacity": {"value": 0.6}
           }
         }
-      },
-      {
-        "type": "text",
-        "interactive": false,
-        "encode": {
-          "enter": {
-            "x": {"signal": "width", "offset": -5},
-            "y": {"value": 0},
-            "fill": {"value": "black"},
-            "fontSize": {"value": 18},
-            "align": {"value": "right"}
-          },
-          "update": {
-            "text": {"signal": "title"}
-          }
-        }
-      },
-      {
-        "type": "text",
-        "interactive": false,
-        "from": { "data": "routes"  },
-        "encode": {
-          "enter": {
-            "x": {"signal": "width", "offset": -155},
-            "y": {"value": 30},
-            "fill": {"value": "black"},
-            "fontSize": {"value": 18},
-            "align": {"value": "left"}
-          },
-          "update": {
-            "text": {"signal": "datum.delay ? 'Delay: ' + datum.delay + ' mins' : ''" }
-          }
-        }
       }
     ]
   }

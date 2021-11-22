@@ -4,15 +4,16 @@ import { FlightService } from "./flight.service";
 
 @Controller('flight')
 export class FlightsController {
-    constructor(private readonly productService: FlightService) {}
+    constructor(private readonly flightService: FlightService) {}
 
     @Get()
     getFlights(): Promise<Flight[]> {
-      return this.productService.findAll();
+      return this.flightService.findAll();
     }
 
-    @Get(':year')
-    getProductByName(@Param() params: {year: number}): Promise<Flight> {
-      return this.productService.findByName(params.year);
+    @Get(':origin/:dest')
+    getFlightByOriginDest(@Param() data: {origin: string, dest: string}): Promise<Flight[]> {
+     return this.flightService.getFlightsByOriginDest(data.origin, data.dest);
+
     }
 }

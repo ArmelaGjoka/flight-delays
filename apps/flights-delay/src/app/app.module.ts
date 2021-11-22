@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { VisualizationComponent } from './visualization/visualization.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSelectModule} from '@angular/material/select';
@@ -18,13 +17,16 @@ import { ViewContainerComponent } from './view-container/view-container.componen
 import { ChartComponent } from './view-container/components/chart/chart.component';
 import { FormComponent } from './view-container/components/form/form.component';
 import { GridComponent } from './view-container/components/grid/grid.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [AppComponent, VisualizationComponent, ViewContainerComponent, ChartComponent, FormComponent, GridComponent],
+  declarations: [AppComponent, ViewContainerComponent, ChartComponent, FormComponent, GridComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     MatSelectModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -33,6 +35,7 @@ import { GridComponent } from './view-container/components/grid/grid.component';
     AgGridModule.withComponents([]),
     MatTabsModule,
     MatButtonModule,
+    MatAutocompleteModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],
