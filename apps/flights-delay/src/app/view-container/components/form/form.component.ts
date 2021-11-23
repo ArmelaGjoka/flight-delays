@@ -1,7 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map, Observable, of, startWith } from 'rxjs';
-import { CARRIER_LIST } from '../../../constants/carrier';
+import { CARRIER_LIST, CARRIER_LIST_MAPPER } from '../../../constants/carrier';
 import { Flight } from '../../models/flight.model';
 
 @Component({
@@ -24,24 +25,28 @@ export class FormComponent implements OnInit {
 
   carriers = CARRIER_LIST;
 
+  carrier_mapper = CARRIER_LIST_MAPPER;
+
   filteredCarriers: Observable<string[]> | undefined = of(this.carriers);
 
   form = new FormGroup({
     // Flight
-    departureDelay: new FormControl(), 
+    dep_delay: new FormControl(), 
     distance: new FormControl(), 
     // Time
-    hour: new FormControl(),
-    day: new FormControl(),
+    hour_of_day: new FormControl(),
+    day_of_week: new FormControl(),
     month: new FormControl(),
     // Covid
-    covidOrigin: new FormControl(),
-    covidDest: new FormControl(),
-    increaseOrigin: new FormControl(),
-    increaceDest: new FormControl(),
+    orig_cases_perc: new FormControl(0.0),
+    dest_cases_perc: new FormControl(0.0),
+    orig_cases_increase_7: new FormControl(0.0),
+    dest_cases_increase_7: new FormControl(0.0),
     // Airline
-    airline: new FormControl(),
-  })
+    airline: new FormControl(null, Validators.required),
+  });
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.filteredCarriers = this.form.get('airline')?.valueChanges.pipe(
@@ -57,7 +62,12 @@ export class FormComponent implements OnInit {
   }
 
   predictDelay() {
-    console.log('Predict delay');
+
+    const value = { ...this.form.value, airline: CARRIER_LIST_MAPPER[this.form.value.airline]};
+    
+    this.http.post('/predict-api', { value }).subscribe(r => console.log('Predict: ', this.form.value.airline))
+    
+    console.log('Predict delay: ', value);
   }
 
 }

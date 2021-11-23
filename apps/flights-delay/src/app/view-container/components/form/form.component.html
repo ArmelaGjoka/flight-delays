@@ -4,22 +4,22 @@
         <p style="font-weight: 700">Flight</p>
         <mat-form-field style="padding: 10px;">
           <mat-label>Departure Delay</mat-label>
-          <input matInput  type="number" formControlName="departureDelay"/>
+          <input matInput  type="number" step="0.1" formControlName="dep_delay"/>
           <span matSuffix>min</span>
         </mat-form-field>
         <mat-form-field style="padding: 10px;">
           <mat-label>Distance</mat-label>
-          <input matInput  type="number" formControlName="distance"/>
+          <input matInput  type="number" step="0.1" formControlName="distance"/>
           <span matSuffix>km</span>
         </mat-form-field>
         <p style="font-weight: 700">Time Options</p>
        <mat-form-field style="padding: 10px;">
          <mat-label>Hour of the day</mat-label>
-         <input matInput  type="number" min="1" max="23" formControlName="hour"/>
+         <input matInput  type="number" min="1" max="23" formControlName="hour_of_day"/>
        </mat-form-field>
        <mat-form-field style="padding: 10px;">
          <mat-label>Day of the week</mat-label>
-         <input matInput type="number" min="1" max="7" formControlName="day"/>
+         <input matInput type="number" min="1" max="7" formControlName="day_of_week"/>
        </mat-form-field>
        <mat-form-field style="padding: 10px;">
         <mat-label>Month</mat-label>
@@ -30,19 +30,19 @@
         <p style="font-weight: 700">Covid Case:</p>
         <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Origin</mat-label>
-          <input matInput  type="number" formControlName="covidOrigin"/>
+          <input matInput  type="number" formControlName="orig_cases_perc"/>
         </mat-form-field>
         <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Destination</mat-label>
-          <input matInput type="number" formControlName="covidDest"/>
+          <input matInput type="number" formControlName="dest_cases_perc"/>
         </mat-form-field>
         <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Incr. Origin</mat-label>
-          <input matInput type="text" formControlName="increaseOrigin"/>
+          <input matInput type="text" formControlName="orig_cases_increase_7"/>
         </mat-form-field>
         <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Incr. Destination</mat-label>
-          <input matInput type="text" formControlName="increaceDest"/>
+          <input matInput type="text" formControlName="dest_cases_increase_7"/>
         </mat-form-field>
       </div>
       <div>

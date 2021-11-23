@@ -41,7 +41,6 @@ export class ViewContainerComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('/predict-api').subscribe(r => console.log('Python: ', r));
 
     this.utilityService.getAirports().subscribe(res => this.airports = res);
     this.covidService.getCovidData().subscribe((data: Covid[]) => {
