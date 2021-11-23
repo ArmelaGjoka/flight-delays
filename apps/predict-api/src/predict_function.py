@@ -2,29 +2,19 @@ import pandas as pd
 import joblib
 
 
-def predict():
-    # TO DO: get data from the predict form, below dummy data
-    month = 1
-    day_of_week = 3
-    hour_of_day = 10
-    distance = 100.0
-    dep_delay = 10.0
-    orig_cases_perc = 0.5
-    orig_cases_increase_7 = 10.0
-    dest_cases_perc = 0.5
-    dest_cases_increase_7 = 10.0
-    airline = 'B6'
+def predict(month=1, day_of_week=1, hour_of_day=10, distance=100.0, dep_delay=0.0,
+                                orig_cases_perc=0.0, orig_cases_increase_7=0.0, dest_cases_perc=0.0,
+                                dest_cases_increase_7=0.0, airline='AA'):
+
     # call preprocessDataAndPredict and pass inputs
     prediction = preprocess_data_and_predict(month, day_of_week, hour_of_day, distance, dep_delay, orig_cases_perc,
                                              orig_cases_increase_7, dest_cases_perc, dest_cases_increase_7, airline)
     print(prediction)
-    # TO DO: pass prediction to predict form in app UI
     return prediction
 
 
-def preprocess_data_and_predict(month=1, day_of_week=1, hour_of_day=10, distance=100.0, dep_delay=0.0,
-                                orig_cases_perc=0.0, orig_cases_increase_7=0.0, dest_cases_perc=0.0,
-                                dest_cases_increase_7=0.0, airline='AA'):
+def preprocess_data_and_predict(month, day_of_week, hour_of_day, distance, dep_delay, orig_cases_perc,
+                                             orig_cases_increase_7, dest_cases_perc, dest_cases_increase_7, airline):
 
     data = {'MONTH': [month], 'DAY_OF_WEEK': [day_of_week], 'HOUR_OF_DAY': [hour_of_day], 'DISTANCE': [distance],
             'DEP_DELAY': [dep_delay], 'ORIGIN_CASES_PERC': [orig_cases_perc],
@@ -46,4 +36,4 @@ def preprocess_data_and_predict(month=1, day_of_week=1, hour_of_day=10, distance
 
     # predict
     prediction = trained_model.predict(data_df)
-    return prediction
+    return str(prediction[0])

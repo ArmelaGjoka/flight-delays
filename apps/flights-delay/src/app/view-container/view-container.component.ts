@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FROM_AIRPORT_LIST, TO_AIRPORT_LIST } from '../constants/aiports';
@@ -35,9 +36,12 @@ export class ViewContainerComponent implements OnInit {
     private flightService: FlightService,
     private utilityService: UtilityService,
     private covidService: CovidService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
+
+    this.http.get('/predict-api').subscribe(r => console.log('Python: ', r));
 
     this.utilityService.getAirports().subscribe(res => this.airports = res);
     this.covidService.getCovidData().subscribe((data: Covid[]) => {
