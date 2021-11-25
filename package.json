@@ -5,10 +5,9 @@
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
-    "start": "nx serve",
     "start:flights": "ng serve flights-delay --open",
-    "start:api": "ng serve api",
-    "start:predict-api": "ng serve predict-api",
+    "start:flights-api": "ng serve api",
+    "start:predict-api": "cd ./apps/predict-api/src && flask run",
     "build": "nx build",
     "test": "nx test"
   },
