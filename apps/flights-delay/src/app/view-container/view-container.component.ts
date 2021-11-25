@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FROM_AIRPORT_LIST, TO_AIRPORT_LIST } from '../constants/aiports';
@@ -8,6 +7,7 @@ import { Flight } from './models/flight.model';
 import { FlightCovid } from './models/flightCovid.model';
 import { CovidService } from './services/covid.service';
 import { FlightService } from './services/flight.service';
+import { PredictService } from './services/predict.service';
 import { UtilityService } from './services/utility.service';
 
 @Component({
@@ -31,12 +31,13 @@ export class ViewContainerComponent implements OnInit {
 
   showNoFlightsMessage = false;
   avgDelay: number | null = null;
+  predictedDelay: number | null = null;
 
   constructor(
     private flightService: FlightService,
     private utilityService: UtilityService,
     private covidService: CovidService,
-    private http: HttpClient
+    private predictService: PredictService
   ) {}
 
   ngOnInit(): void {
@@ -104,5 +105,10 @@ export class ViewContainerComponent implements OnInit {
 
         this.avgDelay = sumDelay / res.length;
       })
+  }
+
+  predictDelay(value: unknown): void {
+    console.log('Value: ', value);
+    this.predictService.predictDelay(value).subscribe((del: number) => this.predictedDelay = del)
   }
 }

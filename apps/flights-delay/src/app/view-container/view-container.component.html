@@ -13,13 +13,14 @@
          </mat-select>
       </mat-form-field>
        <p style="padding-left: 10px; font-weight: 600;" *ngIf="showNoFlightsMessage">We don't have any data for this flight, please change origin or destination</p>
-       <p style="padding-left: 10px; font-weight: 600;" *ngIf="!showNoFlightsMessage && avgDelay">Delay {{ avgDelay | number: '1.0-2' }} mins</p>
+       <p style="padding-left: 10px; font-weight: 600;" *ngIf="!showNoFlightsMessage && avgDelay">Average Delay {{ avgDelay | number: '1.0-2' }} mins</p>
        <flight-delays-chart [chartState] = "chartState"></flight-delays-chart>
     </div>
     <div class="float-child-second"  id="grid">
        <mat-tab-group animationDuration="0ms">
           <mat-tab label="Machine Learning Predict">
-             <flight-delays-form [flights]="flights"></flight-delays-form>
+             <p *ngIf="predictedDelay" style="padding-left: 10px; font-weight: 600;">Predicted Delay is {{ predictedDelay |  number: '1.0-2' }} mins</p>
+             <flight-delays-form [flights]="flights" (predictFormEmitter) = "predictDelay($event)"></flight-delays-form>
           </mat-tab>
           <mat-tab label="Historical Data">
              <flight-delays-grid [rowData]="flights"></flight-delays-grid>
