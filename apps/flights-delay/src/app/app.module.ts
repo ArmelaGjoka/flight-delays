@@ -20,6 +20,8 @@ import { GridComponent } from './view-container/components/grid/grid.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { CommonModule } from '@angular/common';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatTooltipModule,
+    MatIconModule,
     CommonModule,
     MatSelectModule,
     BrowserAnimationsModule,

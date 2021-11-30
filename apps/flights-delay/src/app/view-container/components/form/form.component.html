@@ -35,21 +35,33 @@
       <div>
         <p style="font-weight: 700">Covid related variables:</p>
         <mat-form-field style="padding: 10px; width: 20%;">
-          <mat-label>Cases Origin</mat-label>
+          <mat-label>Cases Origin </mat-label>
           <input matInput  type="number" formControlName="orig_cases_perc"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona cases relative to population (in %) at origin." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
         <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Cases Destination</mat-label>
           <input matInput type="number" formControlName="dest_cases_perc"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona cases relative to population (in %) at destination." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
         <mat-form-field style="padding: 10px; width: 20%;">
-          <mat-label>Increase Origin</mat-label>
+          <mat-label>Incr. Origin</mat-label>
           <input matInput type="number" formControlName="orig_cases_increase_7"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona trends as change in comparison to previous week average at origin." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
         <mat-form-field style="padding: 10px; width: 20%;">
-          <mat-label>Increase Destination</mat-label>
+          <mat-label>Incr. Destination</mat-label>
           <input matInput type="number" formControlName="dest_cases_increase_7"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona trends as change in comparison to previous week average at destination." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
       </div>
       <div>
         <p style="font-weight: 700">Airline</p>
