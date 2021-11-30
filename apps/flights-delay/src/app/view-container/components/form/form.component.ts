@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { map, Observable, of, startWith } from 'rxjs';
 import { CARRIER_LIST, CARRIER_LIST_MAPPER } from '../../../constants/carrier';
+import { DAYS } from '../../../constants/days';
+import { MONTHS } from '../../../constants/months';
 import { Flight } from '../../models/flight.model';
 
 @Component({
@@ -29,6 +31,10 @@ export class FormComponent implements OnInit {
   carriers = CARRIER_LIST;
 
   carrier_mapper = CARRIER_LIST_MAPPER;
+
+  weekDays = DAYS;
+
+  months = MONTHS;
 
   filteredCarriers: Observable<string[]> | undefined = of(this.carriers);
 
