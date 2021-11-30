@@ -111,4 +111,8 @@ export class ViewContainerComponent implements OnInit {
     console.log('Value: ', value);
     this.predictService.predictDelay(value).subscribe((del: number) => this.predictedDelay = del)
   }
+
+  returnZero() {
+    return 0;
+  }
 }
