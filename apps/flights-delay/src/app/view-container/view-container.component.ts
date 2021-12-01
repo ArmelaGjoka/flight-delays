@@ -26,6 +26,8 @@ export class ViewContainerComponent implements OnInit {
   airports: Airport[] = [];
 
   covidData: { [fips: string]: { [date: string]: Covid } } = {};
+
+  traffic: {origin: string, destination: string, count: number}[] = [];
   
   chartState: unknown;
 
@@ -41,7 +43,7 @@ export class ViewContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
+    this.flightService.getFlightsGroupedByOrigin().subscribe(result => this.traffic = [...result]);
 
     this.utilityService.getAirports().subscribe(res => this.airports = res);
     this.covidService.getCovidData().subscribe((data: Covid[]) => {

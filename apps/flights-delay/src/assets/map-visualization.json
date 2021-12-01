@@ -66,8 +66,6 @@
       },
       {
         "name": "traffic",
-        "url": "assets/data/flights-airport.csv",
-        "format": {"type": "csv", "parse": "auto"},
         "transform": [
           {
             "type": "aggregate",
@@ -233,10 +231,10 @@
         "interactive": false,
         "encode": {
           "enter": {
-            "x": {"value": 895},
+            "x": {"value": 730},
             "y": {"value": 0},
             "fill": {"value": "black"},
-            "fontSize": {"value": 20},
+            "fontSize": {"value": 16},
             "align": {"value": "right"},
             "tooltip": {"value": "shape"}
           },

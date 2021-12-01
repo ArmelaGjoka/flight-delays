@@ -25,6 +25,8 @@ export class ChartComponent implements OnInit {
     this.view.insert('airports', values).run();
   }
 
+  @Input() traffic: any[] | undefined;
+
   @Output() chartSelection = new EventEmitter();
 
   constructor(
@@ -52,7 +54,11 @@ export class ChartComponent implements OnInit {
     this.view?.addEventListener('click', (event, item: any) => {
          this.chartSelection.emit(item.datum);
       });
+
+    const changeset = vega.changeset().remove(() => true).insert(this.traffic);
+    this.view?.change('traffic', changeset).run();
   }
+
 
   private setState(signals: unknown): void {
     this.view?.setState({ signals });
