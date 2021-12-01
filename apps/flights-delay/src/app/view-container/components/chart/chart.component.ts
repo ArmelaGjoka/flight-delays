@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { View } from 'vega';
 
 declare let vega: any;
@@ -25,6 +25,8 @@ export class ChartComponent implements OnInit {
     this.view.insert('airports', values).run();
   }
 
+  @Output() chartSelection = new EventEmitter();
+
   constructor(
     private http: HttpClient
   ) {}
@@ -45,6 +47,11 @@ export class ChartComponent implements OnInit {
       .height(560)
       .hover()
       .run();
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.view?.addEventListener('click', (event, item: any) => {
+         this.chartSelection.emit(item.datum);
+      });
   }
 
   private setState(signals: unknown): void {

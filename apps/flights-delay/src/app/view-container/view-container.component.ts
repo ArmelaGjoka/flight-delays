@@ -107,12 +107,25 @@ export class ViewContainerComponent implements OnInit {
       })
   }
 
-  predictDelay(value: unknown): void {
-    console.log('Value: ', value);
-    this.predictService.predictDelay(value).subscribe((del: number) => this.predictedDelay = del)
+  chartSelectionChanged(airport: Airport): void {
+      if (this.fromAirport.value == null) {
+          this.fromAirport.setValue(airport.iata);
+          return;
+      }
+
+      if (this.toAirport.value == null) {
+          this.toAirport.setValue(airport.iata);
+          return;
+      }
+      // If both origin and dest have values, from Airport will be choosen again
+      this.fromAirport.setValue(airport.iata);
   }
 
-  returnZero() {
+  predictDelay(value: unknown): void {
+    this.predictService.predictDelay(value).subscribe((delay: number) => this.predictedDelay = delay)
+  }
+
+  returnZero(): number {
     return 0;
   }
 }
