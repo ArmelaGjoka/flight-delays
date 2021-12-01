@@ -1,105 +1,69 @@
 
 
-# FlightDelays
+# DESCRIPTION
 
-This project was generated using [Nx](https://nx.dev).
+Flight Delays application is set up as a monorepo by using Nx MonoRepo. There are three building blocks: 
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+- Frontend Application created with Angular Framework. Main libraries we have used are: Angular Material, ag-grid for grid visualization and vega grammar for creating and updating charts. 
+- Backend Application created with NestJS Framework. Here we are connecting to the sqlite database to get the historical data for flights and corona values for each state.  
+- Prediction Application created with Flask Framework. Here we are sending requests and expecting to get a prediction of delay for the specified input variables.
+Frontend application is sending requests to both Backend and Prediction applications through HTTP requests.
 
-🔎 **Smart, Extensible Build Framework**
+Following Python scripts are used to generate modelling results and are located in flight-delays/predict-api/src/ folder:
+- data_prep_expl.py: for data exploration
+- RF_airport id feature analysis.py: for origin and destination airport feature importance analysis
+- RF_main analysis: for other feature importance, dummy regressor and Random Forest regressor analysis
+- Voting regressor.py: for voting regressor analysis
+- utils.py: contains supporting functions
+All modelling results described in the report can be found in the results folder.
 
-## Quick Start & Documentation
+- Toy data for a demo is included as flights.db. 
+- Complete dataset can be downloaded via this link: https://drive.google.com/file/d/186fBgTf4y9rNfF5YS32iSc30_lep3gow/view?usp=sharing
 
-[Nx Documentation](https://nx.dev/angular)
+# INSTALLATION
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+1. Save flight-delays repository on your local machine, note the folder path
+2. Download and install NodeJS version 14.17.0 (https://nodejs.org/download/release/v14.17.0/)
+3. Open Anaconda prompt. If you don't have Anaconda, first download it from https://www.anaconda.com/ and install. Alternatively, steps below can be done from Visual Studio or command prompt.
+4. In Anaconda prompt, create and activate new virtual enviroment by executing: 
+	a. conda create --name [env_name] 
+	b. activate [env_name]
+5. Navigate to [your-flight-delays-app-path]/apps/predict-api/src and set 2 environment variables:
+	a. Set path: set FLASK_PATH=app.py
+	b. Set app: set FLASK_APP=app.py
+6. Navigate back to [your-flight-delays-app-path] and install required Python packages listed in requirements.txt file by executing: conda install -c conda-forge --file requirements.txt
+	Make sure your virtual environment [env_name] is activated.
+7. Install npm by executing: npm install  
+8. Install sqlite dependency: npm install sqlite3 	
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+# EXECUTION
 
-## Adding capabilities to your workspace
+After dependencies are installed run in parallel the commands below, i.e, open 3 Anaconda prompt terminals and run one command listed below in each terminal window. Make sure your virtual environment [env_name] is activated in each terminal window and that the path navigates to [your-flight-delays-app-path].
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+1. npm run start:flights
+2. npm run start:flights-api
+3. npm run start:predict-api
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+Navigate to localhost:4200 and you should see the app.
 
-Below are our core plugins:
+# An example scenario to run:
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+1. Select Fort Lauderdale-Hollywood International as origin airport (FROM) and Denver International as destination airport (TO)
+2. Upon selection, the following is displayed:
+	a. "Average Delay -0.79 mins" is displayed above the map
+	b. Selected airports are connected in the map
+	c. In the predict form, departure delay and distance are pre-populated: departure delay as an average historic departure delay (8.211 min) and distance according to the data from the database (1703 km). These variables can remain as such or you can alter them if you like.
+3. Enter the remaining input variables in the Machine Learning Predict form
+	a. Departure hour: try first 78 - you should get a message that the hour should be between 0 and 23. Now enter 10.
+	b. Departure day of week: select Friday.
+	c. Departure month: select February.
+	d. Corona related variables: select 0.15% and 0.1% for cases origin and destination, respectively. Select 50% and 20% for increase origin and destination, respectively. 
+	e. Airline: select Southwest Airlines Co.
+4. Click Predict button
+5. Arrival delay predicted via Machine Learning model should be displayed on the top of the Machine Learning Predict form: "Predicted Delay is -1.04 mins" (for the input parameters specified above)
+6. Now switch to Historical Data tab. 
+	a. You will see 19 distinct flights from Fort Lauderdale-Hollywood International to Denver International displayed along with a lot of supporting data. You can check / uncheck boxes in the panel on the right to select which columns will be displayed. You can also drag a column into Row Groups panel to group the data.
+	b. To see aggregated values, switch on Pivot Mode. Here you can also group the data by dragging a column into Row Groups panel. You can also update the type of aggregation function in the Values panel.
 
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@flight-delays/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+ 
+- Link to the DEMO video that shows how to install and run the application: https://www.youtube.com/watch?v=iBa5wnhtvw8
