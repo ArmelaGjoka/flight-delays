@@ -8,12 +8,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -37,14 +41,20 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -60,7 +70,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/flights-delay",
             "index": "apps/flights-delay/src/index.html",
@@ -71,7 +83,9 @@
               "apps/flights-delay/src/favicon.ico",
               "apps/flights-delay/src/assets"
             ],
-            "styles": ["apps/flights-delay/src/styles.css"],
+            "styles": [
+              "apps/flights-delay/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -137,7 +151,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/flights-delay"],
+          "outputs": [
+            "coverage/apps/flights-delay"
+          ],
           "options": {
             "jestConfig": "apps/flights-delay/jest.config.js",
             "passWithNoTests": true
@@ -164,9 +180,49 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/flights-delay-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/flights-delay-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "predict-api": {
+      "projectType": "application",
+      "root": "apps/predict-api",
+      "sourceRoot": "apps/predict-api/src",
+      "architect": {
+        "build": {
+          "builder": "@nx-python/nx-python:build",
+          "options": {
+            "outputPath": "dist\\apps\\predict-api",
+            "main": "apps\\predict-api\\src\\hello.py",
+            "templateType": "flask"
+          }
+        },
+        "serve": {
+          "builder": "@nx-python/nx-python:serve",
+          "options": {
+            "main": "apps\\predict-api\\src\\hello.py",
+            "templateType": "flask"
+          }
+        },
+        "test": {
+          "builder": "@nx-python/nx-python:test",
+          "options": {
+            "main": "apps\\predict-api\\src\\test_hello.py",
+            "templateType": "flask"
+          }
+        },
+        "lint": {
+          "builder": "@nx-python/nx-python:lint",
+          "options": {
+            "main": "apps\\predict-api\\src\\hello.py",
+            "templateType": "flask"
           }
         }
       }

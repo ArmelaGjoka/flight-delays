@@ -7,6 +7,7 @@ import { Flight } from './models/flight.model';
 import { FlightCovid } from './models/flightCovid.model';
 import { CovidService } from './services/covid.service';
 import { FlightService } from './services/flight.service';
+import { PredictService } from './services/predict.service';
 import { UtilityService } from './services/utility.service';
 
 @Component({
@@ -25,19 +26,24 @@ export class ViewContainerComponent implements OnInit {
   airports: Airport[] = [];
 
   covidData: { [fips: string]: { [date: string]: Covid } } = {};
+
+  traffic: {origin: string, destination: string, count: number}[] = [];
   
   chartState: unknown;
 
   showNoFlightsMessage = false;
   avgDelay: number | null = null;
+  predictedDelay: number | null = null;
 
   constructor(
     private flightService: FlightService,
     private utilityService: UtilityService,
     private covidService: CovidService,
+    private predictService: PredictService
   ) {}
 
   ngOnInit(): void {
+    this.flightService.getFlightsGroupedByOrigin().subscribe(result => this.traffic = [...result]);
 
     this.utilityService.getAirports().subscribe(res => this.airports = res);
     this.covidService.getCovidData().subscribe((data: Covid[]) => {
@@ -101,5 +107,27 @@ export class ViewContainerComponent implements OnInit {
 
         this.avgDelay = sumDelay / res.length;
       })
+  }
+
+  chartSelectionChanged(airport: Airport): void {
+      if (this.fromAirport.value == null) {
+          this.fromAirport.setValue(airport.iata);
+          return;
+      }
+
+      if (this.toAirport.value == null) {
+          this.toAirport.setValue(airport.iata);
+          return;
+      }
+      // If both origin and dest have values, from Airport will be choosen again
+      this.fromAirport.setValue(airport.iata);
+  }
+
+  predictDelay(value: unknown): void {
+    this.predictService.predictDelay(value).subscribe((delay: number) => this.predictedDelay = delay)
+  }
+
+  returnZero(): number {
+    return 0;
   }
 }

@@ -17,5 +17,9 @@ export class FlightService {
         
         return this.http.get<Flight[]>(url);
     }
+
+    getFlightsGroupedByOrigin(): Observable<{origin: string, destination: string, count: number}[]> {
+        return this.http.get<{origin: string, destination: string, count: number}[]>(`${FlightService.PATH}/count`)
+    }
     
 }

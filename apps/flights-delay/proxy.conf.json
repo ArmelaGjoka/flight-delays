@@ -2,5 +2,9 @@
   "/api": {
     "target": "http://localhost:3333",
     "secure": false
+  },
+  "/predict-api": {
+    "target": "http://127.0.0.1:5000",
+    "secure": false
   }
 }

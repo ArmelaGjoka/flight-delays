@@ -1,49 +1,67 @@
-<form [formGroup]="form">
+<form [formGroup]="form" style="padding-left: 10px;">
     <div>
       <div>
         <p style="font-weight: 700">Flight</p>
         <mat-form-field style="padding: 10px;">
-          <mat-label>Departure Delay</mat-label>
-          <input matInput  type="number" formControlName="departureDelay"/>
+          <mat-label>(Average) Departure Delay</mat-label>
+          <input matInput  type="number" formControlName="dep_delay"/>
           <span matSuffix>min</span>
         </mat-form-field>
         <mat-form-field style="padding: 10px;">
           <mat-label>Distance</mat-label>
-          <input matInput  type="number" formControlName="distance"/>
+          <input matInput  type="number" min="0" formControlName="distance"/>
           <span matSuffix>km</span>
+          <mat-error *ngIf="form.get('distance')?.invalid">Distance should be greater than 0</mat-error>
         </mat-form-field>
-        <p style="font-weight: 700">Time Options</p>
+        <p style="font-weight: 700">Flight date and time options</p>
        <mat-form-field style="padding: 10px;">
-         <mat-label>Hour of the day</mat-label>
-         <input matInput  type="number" min="1" max="23" formControlName="hour"/>
+         <mat-label>Departure hour (0-23)</mat-label>
+         <input matInput  type="number" min="1" max="23" formControlName="hour_of_day"/>
+         <mat-error *ngIf="form.get('hour_of_day')?.invalid">Hour should be between 0 and 23</mat-error>
        </mat-form-field>
        <mat-form-field style="padding: 10px;">
-         <mat-label>Day of the week</mat-label>
-         <input matInput type="number" min="1" max="7" formControlName="day"/>
-       </mat-form-field>
-       <mat-form-field style="padding: 10px;">
-        <mat-label>Month</mat-label>
-        <input matInput type="number" min="1" max="6" formControlName="month"/>
-      </mat-form-field>
+        <mat-label>Departure day of week</mat-label>
+        <mat-select formControlName="day_of_week" panelClass="select">
+           <mat-option *ngFor="let day of weekDays | keyvalue" [value]="day.key">{{ day.value}}</mat-option>
+        </mat-select>
+     </mat-form-field>
+     <mat-form-field style="padding: 10px;">
+      <mat-label>Departure month</mat-label>
+      <mat-select formControlName="month" panelClass="select">
+         <mat-option *ngFor="let month of months | keyvalue" [value]="month.key">{{ month.value}}</mat-option>
+      </mat-select>
+   </mat-form-field>
       </div>
       <div>
-        <p style="font-weight: 700">Covid Case:</p>
+        <p style="font-weight: 700">Covid related variables:</p>
         <mat-form-field style="padding: 10px; width: 20%;">
-          <mat-label>Origin</mat-label>
-          <input matInput  type="number" formControlName="covidOrigin"/>
+          <mat-label>Cases Origin </mat-label>
+          <input matInput  type="number" formControlName="orig_cases_perc"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona cases relative to population (in %) at origin." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
         <mat-form-field style="padding: 10px; width: 20%;">
-          <mat-label>Destination</mat-label>
-          <input matInput type="number" formControlName="covidDest"/>
+          <mat-label>Cases Destination</mat-label>
+          <input matInput type="number" formControlName="dest_cases_perc"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona cases relative to population (in %) at destination." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
         <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Incr. Origin</mat-label>
-          <input matInput type="text" formControlName="increaseOrigin"/>
+          <input matInput type="number" formControlName="orig_cases_increase_7"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona trends as change in comparison to previous week average at origin." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
         <mat-form-field style="padding: 10px; width: 20%;">
           <mat-label>Incr. Destination</mat-label>
-          <input matInput type="text" formControlName="increaceDest"/>
+          <input matInput type="number" formControlName="dest_cases_increase_7"/>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Corona trends as change in comparison to previous week average at destination." style="margin-left: -40px;">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
       </div>
       <div>
         <p style="font-weight: 700">Airline</p>

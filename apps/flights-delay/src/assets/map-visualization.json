@@ -10,7 +10,14 @@
         "name": "hover",
         "value": null,
         "on": [
+          {"events": "@cell:mouseover", "update": "datum"},
+          {"events": "@cell:mouseout", "update": "null"}
         ]
+      },
+      {
+        "name": "titleHover",
+        "value": "",
+        "update": "hover ? hover.name + ' (' + hover.iata + ')' : ''"
       },
       {
         "name": "from",
@@ -59,8 +66,6 @@
       },
       {
         "name": "traffic",
-        "url": "assets/data/flights-airport.csv",
-        "format": {"type": "csv", "parse": "auto"},
         "transform": [
           {
             "type": "aggregate",
@@ -218,6 +223,23 @@
             "path": {"field": "path"},
             "stroke": {"value": "red"},
             "strokeOpacity": {"value": 0.6}
+          }
+        }
+      },
+      {
+        "type": "text",
+        "interactive": false,
+        "encode": {
+          "enter": {
+            "x": {"value": 730},
+            "y": {"value": 0},
+            "fill": {"value": "black"},
+            "fontSize": {"value": 16},
+            "align": {"value": "right"},
+            "tooltip": {"value": "shape"}
+          },
+          "update": {
+            "text": {"signal": "titleHover"}
           }
         }
       }

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/utils.py" line="49" mnemonic="9" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f13f3d9e-ac8e-4744-8b94-4b1394ce989c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Voting regressor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Assignment_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Assignment_1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boosting.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/comparison.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/contraception.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/contraception_final.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ctg.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ctg_final.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_prep_expl.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_prep_expl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decision_tree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/knn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/neural_net.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/algorithm_comparison_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/algorithm_comparison_other_metrics.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/boosting/accuracy_vs_learning_rate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/boosting/accuracy_vs_n_estimators.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/boosting/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/boosting/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/boosting/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/boosting/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/boosting/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/class_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/correlation_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/accuracy_vs_ccp_alpha.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/accuracy_vs_max_depth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/accuracy_vs_min_samples_leaf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/decision_tree/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/knn/accuracy_vs_n_neighbors.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/knn/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/knn/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/knn/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/knn/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/knn/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/learning_curves_comparison.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/accuracy_vs_epochs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/accuracy_vs_hidden_layer_sizes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/iteration_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/neural_net/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/pairplot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/accuracy_vs_C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/accuracy_vs_gamma.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/kernel_comparison.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/contraception/svm/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/algorithm_comparison_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/algorithm_comparison_other_metrics.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/boosting/accuracy_vs_learning_rate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/boosting/accuracy_vs_n_estimators.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/boosting/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/boosting/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/boosting/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/boosting/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/boosting/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/class_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/correlation_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/accuracy_vs_ccp_alpha.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/accuracy_vs_max_depth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/accuracy_vs_min_samples_leaf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/decision_tree/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/knn/accuracy_vs_n_neighbors.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/knn/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/knn/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/knn/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/knn/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/knn/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/learning_curves_comparison.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/accuracy_vs_epochs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/accuracy_vs_hidden_layer_sizes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/iteration_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/neural_net/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/pairplot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/accuracy_vs_C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/accuracy_vs_gamma.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/all_clfs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/kernel_comparison.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/learning_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/learning_curve_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/ctg/svm/results_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>algo</find>
+      <find>np</find>
+      <find>n</find>
+      <find>random</find>
+      <find>split</find>
+      <find>ShuffleSplit</find>
+      <find>cv</find>
+      <find>max</find>
+      <find>scorer</find>
+      <find>scoring</find>
+      <find>ccuracy</find>
+      <find>tight</find>
+      <find>font</find>
+      <find>ylim</find>
+      <find>figsize</find>
+      <find>clf_optimal</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/results/utils.py" />
+        <option value="$PROJECT_DIR$/neural_net_smote.py" />
+        <option value="$PROJECT_DIR$/data_prep_expl.py" />
+        <option value="$PROJECT_DIR$/decision_tree.py" />
+        <option value="$PROJECT_DIR$/neural_net.py" />
+        <option value="$PROJECT_DIR$/boosting.py" />
+        <option value="$PROJECT_DIR$/knn.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/svm.py" />
+        <option value="$PROJECT_DIR$/comparison.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1288" />
+    <option name="height" value="697" />
+  </component>
+  <component name="ProjectId" id="1ziyM2PzyO4Zx0PYrdoyWiHu0m6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Assignment_3/Code for assignment_3/pca.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Apps\Machine-Learning\Assignment_1\Code for assignment_1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.predict_function">
+    <configuration name="RF_airport id feature analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Apps\Machine-Learning\Assignment_1\Code for assignment_1\RF_airport id feature analysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Voting regressor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Voting regressor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="data_prep_expl" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_prep_expl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="predict_function" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/predict_function.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.data_prep_expl" />
+      <item itemvalue="Python.RF_airport id feature analysis" />
+      <item itemvalue="Python.Voting regressor" />
+      <item itemvalue="Python.utils" />
+      <item itemvalue="Python.predict_function" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.predict_function" />
+        <item itemvalue="Python.Voting regressor" />
+        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.data_prep_expl" />
+        <item itemvalue="Python.RF_airport id feature analysis" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f13f3d9e-ac8e-4744-8b94-4b1394ce989c" name="Default Changelist" comment="" />
+      <created>1611258106915</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611258106915</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1288" height="697" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2496" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3762598" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39977604" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969843" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3762598" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39977604" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/results/utils.py" />
+    <entry file="file://$PROJECT_DIR$/neural_net_smote.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/imblearn/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-148">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Compressor Predictive Maintenance/Joca_Pythoner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-370">
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_prep_expl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="85" selection-start-line="48" selection-start-column="85" selection-end-line="48" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decision_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="74" column="112" selection-start-line="74" selection-start-column="112" selection-end-line="74" selection-end-column="112" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neural_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="64" selection-start-line="69" selection-start-column="64" selection-end-line="69" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boosting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" column="112" selection-start-line="79" selection-start-column="112" selection-end-line="79" selection-end-column="112" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2431">
+          <caret line="143" column="38" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="30" selection-end-line="66" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

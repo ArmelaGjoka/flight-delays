@@ -19,6 +19,9 @@ import { FormComponent } from './view-container/components/form/form.component';
 import { GridComponent } from './view-container/components/grid/grid.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { CommonModule } from '@angular/common';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -26,6 +29,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatTooltipModule,
+    MatIconModule,
     CommonModule,
     MatSelectModule,
     BrowserAnimationsModule,
@@ -36,6 +41,7 @@ import { CommonModule } from '@angular/common';
     MatTabsModule,
     MatButtonModule,
     MatAutocompleteModule,
+    MatSnackBarModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],

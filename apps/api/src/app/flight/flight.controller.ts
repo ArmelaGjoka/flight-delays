@@ -13,7 +13,13 @@ export class FlightsController {
 
     @Get(':origin/:dest')
     getFlightByOriginDest(@Param() data: {origin: string, dest: string}): Promise<Flight[]> {
-     return this.flightService.getFlightsByOriginDest(data.origin, data.dest);
+      return this.flightService.getFlightsByOriginDest(data.origin, data.dest);
 
+    }
+
+    @Get('/count')
+    groupFlightsByOrigin() {
+
+      return this.flightService.getFlightsGroupedByOrigin();
     }
 }

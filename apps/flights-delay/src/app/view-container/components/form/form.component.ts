@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { map, Observable, of, startWith } from 'rxjs';
-import { CARRIER_LIST } from '../../../constants/carrier';
+import { CARRIER_LIST, CARRIER_LIST_MAPPER } from '../../../constants/carrier';
+import { DAYS } from '../../../constants/days';
+import { MONTHS } from '../../../constants/months';
 import { Flight } from '../../models/flight.model';
 
 @Component({
@@ -14,34 +17,45 @@ export class FormComponent implements OnInit {
   @Input() set flights(values: Flight[]) {
       if (values?.length > 0) {
           const avgDelay = values.reduce((sum, current) => sum + current.dep_delay, 0) / values.length;
-          this.form.get('departureDelay')?.setValue(avgDelay);
+          const del = avgDelay.toLocaleString('en-us', {minimumFractionDigits: 2})
+          this.form.get('dep_delay')?.setValue(del);
           this.form.get('distance')?.setValue( values[0].distance);
       } else {
-        this.form.get('departureDelay')?.setValue(null);
+        this.form.get('dep_delay')?.setValue(null);
         this.form.get('distance')?.setValue(null);
       }
   }
 
+  @Output() predictFormEmitter = new EventEmitter();
+
   carriers = CARRIER_LIST;
+
+  carrier_mapper = CARRIER_LIST_MAPPER;
+
+  weekDays = DAYS;
+
+  months = MONTHS;
 
   filteredCarriers: Observable<string[]> | undefined = of(this.carriers);
 
   form = new FormGroup({
     // Flight
-    departureDelay: new FormControl(), 
+    dep_delay: new FormControl(), 
     distance: new FormControl(), 
     // Time
-    hour: new FormControl(),
-    day: new FormControl(),
+    hour_of_day: new FormControl(),
+    day_of_week: new FormControl(),
     month: new FormControl(),
     // Covid
-    covidOrigin: new FormControl(),
-    covidDest: new FormControl(),
-    increaseOrigin: new FormControl(),
-    increaceDest: new FormControl(),
+    orig_cases_perc: new FormControl(),
+    dest_cases_perc: new FormControl(),
+    orig_cases_increase_7: new FormControl(),
+    dest_cases_increase_7: new FormControl(),
     // Airline
     airline: new FormControl(),
-  })
+  });
+
+  constructor(private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.filteredCarriers = this.form.get('airline')?.valueChanges.pipe(
@@ -56,8 +70,17 @@ export class FormComponent implements OnInit {
     return this.carriers.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  predictDelay() {
-    console.log('Predict delay');
+  predictDelay(): void {
+    if (!this.form.valid) {
+      this._snackBar.open('Form is not valid, please update the values', 'Ok', {
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+        return;
+    }
+
+    const airline = this.form.value.airline ? CARRIER_LIST_MAPPER[this.form.value.airline] : null;    
+    this.predictFormEmitter.emit({ ...this.form.value, airline});
   }
 
 }
